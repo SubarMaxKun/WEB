@@ -6,7 +6,5 @@ public interface ProductRepository {
 
   Product[] getAll(Product[] products);
 
-  Product getById(int id, Product[] products);
-
-  Product[] getByTitle(String title, Product[] products);
+  String[] getTen(Product[] products);
 }

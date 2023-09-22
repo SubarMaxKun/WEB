@@ -2,7 +2,7 @@ package com.shevliakov.javaservletpr1.persistence;
 
 public class ProductList {
 
-  public Product[] createProducts() {
+  public static Product[] createProducts() {
     return new Product[]{
         new Product(1, "Burger", 100),
         new Product(2, "Sandwich", 15),

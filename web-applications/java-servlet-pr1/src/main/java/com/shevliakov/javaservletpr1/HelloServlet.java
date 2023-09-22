@@ -1,12 +1,12 @@
 package com.shevliakov.javaservletpr1;
 
-import com.shevliakov.javaservletpr1.persistence.Product;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,15 +18,24 @@ public class HelloServlet extends HttpServlet {
       throws ServletException, IOException {
     response.setContentType("text/html");
     ServletContext context = getServletContext();
-    Product[] products = (Product[]) context.getAttribute("products");
-    PrintWriter out = response.getWriter();
-    out.println("<html><body>");
-    out.println("<h1>Products</h1>");
-    for (int i = 0; i < 10; i++) {
-      out.println("<p>" + products[i].getTitle() + "</p>");
+    String[] products = (String[]) context.getAttribute("products");
+    PrintWriter writer = response.getWriter();
+
+    writer.println("<html><body>");
+    writer.println("<h1>Products</h1>");
+    for (String product : products) {
+      writer.println("<p>" + product + "</p>");
     }
-    out.println("</body></html>");
-    out.flush();
-    out.close();
+    writer.println("<p>" + request.getContextPath() + "</p>");
+    writer.println("<p>" + request.getServletPath() + "</p>");
+    writer.println("<p>" + request.getPathInfo() + "</p>");
+    writer.println("<p>" + request.getQueryString() + "</p>");
+    writer.println("<p>" + request.getParameter("param1") + "</p>");
+    writer.println("<p>" + request.getParameter("param2") + "</p>");
+    writer.println("<p>" + request.getHeader("User-Agent") + "</p>");
+    writer.println("<p>" + request.getSession(true).getId() + "</p>");
+    writer.println("</body></html>");
+    writer.flush();
+    writer.close();
   }
 }

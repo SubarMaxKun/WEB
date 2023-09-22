@@ -10,22 +10,11 @@ public class ProductRepositoryImpl implements ProductRepository {
   }
 
   @Override
-  public Product getById(int id, Product[] products) {
-    for (Product product : products) {
-      if (product.getId() == id) {
-        return product;
-      }
+  public String[] getTen(Product[] products) {
+    String[] titles = new String[10];
+    for (int i = 0; i < 10; i++) {
+      titles[i] = products[i].getTitle();
     }
-    return null;
-  }
-
-  @Override
-  public Product[] getByTitle(String title, Product[] products) {
-    for (Product product : products) {
-      if (product.getTitle().equals(title)) {
-        return new Product[]{product};
-      }
-    }
-    return new Product[0];
+    return titles;
   }
 }
