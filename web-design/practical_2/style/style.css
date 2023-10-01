@@ -1,0 +1,84 @@
+html {
+  font-family: Helvetica, Roboto, Arial, sans-serif;
+  min-width: 500px;
+  color: black;
+}
+
+::selection {
+  background-color: floralwhite;
+}
+
+body {
+  margin: 1rem 2rem;
+  background-color: antiquewhite !important;
+}
+
+article {
+  margin: 1rem 0;
+  text-align: justify;
+}
+
+h2 {
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+ul {
+  margin-top: 0.5rem;
+  margin-left: 5rem;
+  list-style-type: disc;
+}
+
+article > ul {
+  margin-left: 2rem;
+}
+
+dl {
+  margin-left: 1rem;
+}
+
+#content {
+  margin: 1.5rem 0;
+}
+
+.author {
+  margin: 0;
+  text-align: center;
+}
+
+.contacts {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  place-items: center;
+}
+
+.contacts::before {
+  font-weight: bold;
+  content: "don't miss--->>>";
+  color: orangered;
+}
+
+.contacts::after {
+  font-weight: bold;
+  content: "<<<---don't miss";
+  color: orangered;
+}
+
+a:hover {
+  color: green;
+}
+
+a {
+  text-decoration: underline;
+  color: blue;
+}
+
+a[href^="mailto:"] {
+  color: red;
+}
+
+.contacts > a {
+  margin: 1rem;
+}
